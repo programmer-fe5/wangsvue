@@ -192,6 +192,10 @@ export interface TableColumn {
   field: string;
   info?: string;
   editable?: boolean;
+  /**
+   * If the column is editable, only allow number inputs.
+   */
+  numberInputOnly?: boolean;
   sortable?: boolean;
   /**
    * Whether the column can be re-ordered by column visibility.
