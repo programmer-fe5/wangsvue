@@ -76,7 +76,7 @@ const setValidatorMessage = (value: string): boolean | string => {
     const { invalidFormat, empty, exceed } = props.validatorMessage ?? {};
     if (!value && props.mandatory) {
       return empty ?? true;
-    } else if (value?.length > props.maxLength && props.type === 'text') {
+    } else if (value?.length > props.maxLength) {
       return exceed ?? true;
     } else if (props.existingValues?.includes(value)) {
       return props.validatorMessage?.exist ?? props.label + ' sudah ada';
