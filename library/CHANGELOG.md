@@ -1,6 +1,20 @@
 # Changelog
 
 
+## v1.5.166
+
+[compare changes](https://github.com/fewangsit/wangsvue/compare/v1.5.165...v1.5.166)
+
+### 💅 Refactors
+
+- **DataTable:** Add prop to only allow char input ([4fc54a6](https://github.com/fewangsit/wangsvue/commit/4fc54a6))
+- **InputText:** Not only type "text" that need validator exceed ([7dcd833](https://github.com/fewangsit/wangsvue/commit/7dcd833))
+
+### ❤️ Contributors
+
+- Priya Bagus Amanullah <priyabagus.a29@gmail.com>
+- Rhapsodya Piedro Asmorobangun ([@piedorr](http://github.com/piedorr))
+
 ## v1.5.165
 
 [compare changes](https://github.com/fewangsit/wangsvue/compare/v1.5.164...v1.5.165)
