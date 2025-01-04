@@ -853,6 +853,18 @@ const downloadHandler = (e: Events['data-table:download']): void => {
   }
 };
 
+const preventCharInput = (e: KeyboardEvent): void => {
+  if (
+    !(
+      e.code.includes('Digit') ||
+      e.code.includes('Numpad') ||
+      ['ArrowLeft', 'ArrowRight', 'Backspace', 'Delete'].includes(e.code)
+    )
+  ) {
+    e.preventDefault();
+  }
+};
+
 /**
  * TO dynamically set the single action and column visibility right position.
  *
@@ -1226,6 +1238,9 @@ const listenUpdateTableEvent = (): void => {
                               value: (e.target as HTMLElement).innerText,
                             } as DataTableCellEditedEvent);
                           }
+                        "
+                        @keypress="
+                          if (col.numberInputOnly) preventCharInput($event);
                         "
                       >
                         {{ getNestedProperyValue(item, col.field) || '-' }}
