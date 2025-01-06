@@ -1,6 +1,34 @@
 # Changelog
 
 
+## v1.5.167
+
+[compare changes](https://github.com/fewangsit/wangsvue/compare/v1.5.163...v1.5.167)
+
+### 🩹 Fixes
+
+- **v9fL0gDv:** Update endpoint for report task from review leader in taskdetail and tasktable ([a9703d8](https://github.com/fewangsit/wangsvue/commit/a9703d8))
+
+### 💅 Refactors
+
+- **InputText:** Adjust validator priority ([d6da039](https://github.com/fewangsit/wangsvue/commit/d6da039))
+- **DataTable:** Add prop to only allow char input ([4fc54a6](https://github.com/fewangsit/wangsvue/commit/4fc54a6))
+- **InputText:** Not only type "text" that need validator exceed ([7dcd833](https://github.com/fewangsit/wangsvue/commit/7dcd833))
+
+### 🏡 Chore
+
+- **release:** V1.5.164 ([8c1815d](https://github.com/fewangsit/wangsvue/commit/8c1815d))
+- Adjust package ([708bf68](https://github.com/fewangsit/wangsvue/commit/708bf68))
+- **release:** V1.5.165 ([d0e778c](https://github.com/fewangsit/wangsvue/commit/d0e778c))
+- **release:** V1.5.166 ([073dbc2](https://github.com/fewangsit/wangsvue/commit/073dbc2))
+
+### ❤️ Contributors
+
+- Dzulqtera <dzul@qtera.co.id>
+- Priya Bagus Amanullah <priyabagus.a29@gmail.com>
+- Rhapsodya Piedro Asmorobangun ([@piedorr](http://github.com/piedorr))
+- Zain Kurnia <programmer-fe3@qwertysystem.net>
+
 ## v1.5.166
 
 [compare changes](https://github.com/fewangsit/wangsvue/compare/v1.5.165...v1.5.166)
