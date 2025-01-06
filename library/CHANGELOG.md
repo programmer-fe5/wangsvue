@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.5.168
+
+[compare changes](https://github.com/fewangsit/wangsvue/compare/v1.5.167...v1.5.168)
+
+### 🩹 Fixes
+
+- **eDKcXLUa:** Show review.content in taskdetail's review tab ([2d728c3](https://github.com/fewangsit/wangsvue/commit/2d728c3))
+
+### ❤️ Contributors
+
+- Dzulqtera <dzul@qtera.co.id>
+
 ## v1.5.167
 
 [compare changes](https://github.com/fewangsit/wangsvue/compare/v1.5.163...v1.5.167)
