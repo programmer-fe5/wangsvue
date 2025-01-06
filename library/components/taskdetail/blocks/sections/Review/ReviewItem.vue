@@ -21,6 +21,11 @@ const props = defineProps<{
           formatDateReadable(new Date(props.review.createdAt), 86400)
         }}</span>
       </div>
+      <Editor
+        v-if="review.content"
+        :model-value="JSON.parse(review.content)"
+        editor-state="readonly"
+      />
       <div
         :key="index"
         v-for="(checklist, index) in props.review.checklists"
