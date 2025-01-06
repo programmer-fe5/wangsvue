@@ -231,6 +231,7 @@ const dialogConfirmFinishTask = shallowRef<boolean>(false);
 const dialogConfirmEdit = shallowRef<boolean>(false);
 const dialogConfirmApproval = shallowRef<boolean>(false);
 const dialogReportBug = shallowRef<boolean>(false);
+const dialogReportTaskToFixingBug = shallowRef<boolean>(false);
 
 const isApproved = shallowRef<boolean>(false);
 
@@ -875,6 +876,30 @@ const reportBugTask = async (note?: string): Promise<void> => {
   }
 };
 
+const reportTaskToFixingBug = async (note?: string): Promise<void> => {
+  try {
+    setLoading(true);
+    const { data } = await TaskServices.reportTaskToFixingBug(taskId.value, {
+      note: note,
+    });
+    if (data) {
+      toast.add({
+        message: 'Task telah direport bug.',
+        severity: 'success',
+      });
+      dialogReportTaskToFixingBug.value = false;
+      refreshTaskHandler('update', taskId.value);
+    }
+  } catch (error) {
+    toast.add({
+      message: 'Task gagal direport bug.',
+      error,
+    });
+  } finally {
+    setLoading(false);
+  }
+};
+
 const openApprovalDialogConfirm = (approvalState: boolean): void => {
   isApproved.value = approvalState;
   dialogConfirmApproval.value = true;
@@ -1218,7 +1243,7 @@ watch(
   <DialogFinishReview
     v-model:visible="dialogFinishReview"
     :process-name="taskDetail?.process?.name"
-    @report-bug="dialogReportBug = true"
+    @report-bug="dialogReportTaskToFixingBug = true"
     @saved="refreshTaskHandler('update', taskId)"
   />
 
@@ -1243,6 +1268,10 @@ watch(
   />
 
   <DialogReportBug v-model:visible="dialogReportBug" @submit="reportBugTask" />
+  <DialogReportBug
+    v-model:visible="dialogReportTaskToFixingBug"
+    @submit="reportTaskToFixingBug"
+  />
 </template>
 
 <style scoped>

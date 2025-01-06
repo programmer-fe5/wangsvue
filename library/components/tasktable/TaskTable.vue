@@ -52,6 +52,7 @@ import DialogConfirmRestoreTask from './DialogConfirmRestoreTask.vue';
 import DialogConfirmDeleteTaskPermanently from './DialogConfirmDeleteTaskPermanently.vue';
 import DialogSelectProject from './DialogSelectProject.vue';
 import { WangsitStatus } from 'lib/types/wangsStatus.type';
+import DialogReportBug from '../dialogreportbug/DialogReportBug.vue';
 
 const toast = useToast();
 const { setLoading } = useLoadingStore();
@@ -89,6 +90,7 @@ const dialogConfirmRestoreTask = shallowRef<boolean>(false);
 const dialogConfirmRestoreTaskBulk = shallowRef<boolean>(false);
 const dialogConfirmDeleteTaskPermanently = shallowRef<boolean>(false);
 const dialogConfirmDeleteTaskPermanentlyBulk = shallowRef<boolean>(false);
+const dialogReportBug = shallowRef<boolean>(false);
 
 const selectedTask = ref<TaskTableItem>();
 
@@ -830,6 +832,33 @@ const getChecklists = async (): Promise<any[]> => {
   }
 };
 
+const reportTaskToFixingBug = async (note?: string): Promise<void> => {
+  try {
+    setLoading(true);
+    const { data } = await TaskServices.reportTaskToFixingBug(
+      selectedTask.value._id,
+      {
+        note: note,
+      },
+    );
+    if (data) {
+      toast.add({
+        message: 'Task telah direport bug.',
+        severity: 'success',
+      });
+      dialogReportBug.value = false;
+      reloadTable();
+    }
+  } catch (error) {
+    toast.add({
+      message: 'Task gagal direport bug.',
+      error,
+    });
+  } finally {
+    setLoading(false);
+  }
+};
+
 const selectProject = (projectId: string): void => {
   selectedProjectId.value = projectId;
   dialogNewTask.value = true;
@@ -979,6 +1008,7 @@ const selectProject = (projectId: string): void => {
     v-model:visible="dialogFinishReview"
     :process-name="selectedTask?.process?.name"
     :task-id-prop="selectedTask?._id"
+    @report-bug="dialogReportBug = true"
     @saved="reloadTable"
   />
 
@@ -1028,5 +1058,10 @@ const selectProject = (projectId: string): void => {
     v-model:visible="dialogConfirmDeleteTaskPermanentlyBulk"
     :tasks="selectedTasks"
     @saved="reloadTable"
+  />
+
+  <DialogReportBug
+    v-model:visible="dialogReportBug"
+    @submit="reportTaskToFixingBug"
   />
 </template>

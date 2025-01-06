@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { shallowRef, ref, onMounted, onUnmounted } from 'vue';
+import { shallowRef, onMounted, onUnmounted } from 'vue';
 import imageData from './imageData.json';
-import { JSONContent } from '../editor/Editor.vue.d';
 import DialogForm from '../dialogform/DialogForm.vue';
 import Editor from '../editor/Editor.vue';
 import Button from '../button/Button.vue';
@@ -21,8 +20,6 @@ const emit = defineEmits<{
   close: [];
   submit: [note?: string];
 }>();
-
-const editorValue = ref<JSONContent>();
 
 const handleClose = (): void => {
   visible.value = false;
@@ -90,7 +87,6 @@ onUnmounted(() => {
     :close-on-submit="false"
     :header="props.header ?? 'Report Bug'"
     @close="handleClose"
-    @hide="editorValue = undefined"
     @submit="handleSubmit"
     submit-btn-label="Kirim"
     width="large"
@@ -159,12 +155,7 @@ onUnmounted(() => {
       </div>
 
       <div>
-        <Editor
-          v-model="editorValue"
-          field-name="reportBug"
-          is-image-upload-base64
-          use-validator
-        />
+        <Editor field-name="reportBug" is-image-upload-base64 use-validator />
       </div>
     </template>
   </DialogForm>
