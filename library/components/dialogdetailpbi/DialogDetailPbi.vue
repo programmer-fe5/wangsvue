@@ -126,8 +126,8 @@ const getEventLog = async (): Promise<void> => {
     <TabMenu
       v-if="
         selectedPbi?.isMemberAssigned ||
-        selectedPbi?.createdBy._id === getUser()._id ||
-        getProjectPermission(project, selectedPbi?.createdBy.teams).read
+        selectedPbi?.createdBy?._id === getUser()._id ||
+        getProjectPermission(project, selectedPbi?.createdBy?.teams).read
       "
       v-model:active-index="activeTab"
       :menu="menu"

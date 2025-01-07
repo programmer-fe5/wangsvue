@@ -377,14 +377,18 @@ const putDoApprovalProcess = async (
       v-if="expanded[index]"
       :project="project"
       :selected-pbi="
-        currentProductBacklogItems.find((pbi) => pbi._id === pbi._id)
+        currentProductBacklogItems.find(
+          (currentPbi) => currentPbi._id === pbi._id,
+        )
       "
       editable
     />
     <DialogDetailPbi
       v-model:visible="visibleDialogDetail[index]"
       :selected-pbi="
-        currentProductBacklogItems.find((pbi) => pbi._id === pbi._id)
+        currentProductBacklogItems.find(
+          (currentPbi) => currentPbi._id === pbi._id,
+        )
       "
     />
   </template>
