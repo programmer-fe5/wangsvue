@@ -443,6 +443,10 @@ export interface BaseDataTableProps {
    */
   disableKey?: string;
   /**
+   * Determine whether disabled rows should be included in the check all process or not
+   */
+  includeCheckDisabledRows?: boolean;
+  /**
    * The key of data object to determine whether the row data has context highlighted or not
    */
   highlightKey?: string;

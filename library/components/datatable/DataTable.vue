@@ -275,7 +275,15 @@ const toggleRowExpand = async (
 };
 
 const toggleAllDataSelection = (e: boolean): void => {
-  checkboxSelection.value = e ? filterDisabledRows(filterParentRowData()) : [];
+  if (props.includeCheckDisabledRows) {
+    checkboxSelection.value = e
+      ? filterParentRowData()
+      : filterParentRowData().filter((d) => isRowDisabled(d[props.dataKey]));
+  } else {
+    checkboxSelection.value = e
+      ? filterDisabledRows(filterParentRowData())
+      : [];
+  }
 };
 
 const toggleRowSelection = (event: Event, data: Data, index: number): void => {
@@ -571,7 +579,9 @@ const selectAllData = async (event: TableEvent): Promise<void> => {
       : { totalRecords: (props.data ?? []).length, data: props.data };
 
     const disabledRows = getDisabledRows(data);
-    checkboxSelection.value = filterDisabledRows(data, disabledRows);
+    checkboxSelection.value = props.includeCheckDisabledRows
+      ? data
+      : filterDisabledRows(data, disabledRows);
 
     updateTotalRecordBulkAction(total);
   } finally {
@@ -883,8 +893,9 @@ const adjustFrozenColumnRightDistance = (): void => {
 };
 
 const updateTotalRecordBulkAction = (total?: number): void => {
-  const disabledCount =
-    (currentPageDisabledRows.value.length || props.totalDisabledRows) ?? 0;
+  const disabledCount = props.includeCheckDisabledRows
+    ? 0
+    : ((currentPageDisabledRows.value.length || props.totalDisabledRows) ?? 0);
 
   const data = {
     total: ((props.lazy ? total : props.data?.length) ?? 0) - disabledCount,
