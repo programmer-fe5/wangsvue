@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v1.5.170
+
+[compare changes](https://github.com/fewangsit/wangsvue/compare/v1.5.169...v1.5.170)
+
+### 🩹 Fixes
+
+- **Se67NdHZ:** Find PBI according to looped array ([0266b3c](https://github.com/fewangsit/wangsvue/commit/0266b3c))
+
+### 💅 Refactors
+
+- **DialogDetailPbi:** Add optional chaining for createdBy ([056b9c5](https://github.com/fewangsit/wangsvue/commit/056b9c5))
+
+### ❤️ Contributors
+
+- Rhapsodya Piedro Asmorobangun ([@piedorr](http://github.com/piedorr))
+
 ## v1.5.169
 
 [compare changes](https://github.com/fewangsit/wangsvue/compare/v1.5.168...v1.5.169)
