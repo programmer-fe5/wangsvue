@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v1.5.169
+
+[compare changes](https://github.com/fewangsit/wangsvue/compare/v1.5.168...v1.5.169)
+
+### 🚀 Enhancements
+
+- **datatable:** Add includeCheckDisabledRows props in datatable ([e12a0ff](https://github.com/fewangsit/wangsvue/commit/e12a0ff))
+
+### 🩹 Fixes
+
+- **datatable:** Set selected data if there's any selected data from props ([708a236](https://github.com/fewangsit/wangsvue/commit/708a236))
+
+### ❤️ Contributors
+
+- Dzulqtera <dzul@qtera.co.id>
+
 ## v1.5.168
 
 [compare changes](https://github.com/fewangsit/wangsvue/compare/v1.5.167...v1.5.168)
