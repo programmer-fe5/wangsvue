@@ -753,6 +753,10 @@ onMounted(async () => {
     listenUpdateTableEvent();
   }
 
+  if (props.selectedData?.length) {
+    checkboxSelection.value = props.selectedData;
+  }
+
   attachEventListener();
 
   if (tableWrapper.value) {
