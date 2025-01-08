@@ -1,6 +1,49 @@
 # Changelog
 
 
+## v1.5.171
+
+[compare changes](https://github.com/fewangsit/wangsvue/compare/v1.5.169...v1.5.171)
+
+### 🚀 Enhancements
+
+- **X6aqFORY:** Add duration field in tasktable ([51203ff](https://github.com/fewangsit/wangsvue/commit/51203ff))
+
+### 🩹 Fixes
+
+- **Se67NdHZ:** Find PBI according to looped array ([0266b3c](https://github.com/fewangsit/wangsvue/commit/0266b3c))
+- **sz45Wybb:** Update total hours in a day for get continous duration in taskdetail ([daeaaf5](https://github.com/fewangsit/wangsvue/commit/daeaaf5))
+
+### 💅 Refactors
+
+- **DialogDetailPbi:** Add optional chaining for createdBy ([056b9c5](https://github.com/fewangsit/wangsvue/commit/056b9c5))
+
+### 🏡 Chore
+
+- **release:** V1.5.170 ([035f0e2](https://github.com/fewangsit/wangsvue/commit/035f0e2))
+
+### ❤️ Contributors
+
+- Dzulqtera <dzul@qtera.co.id>
+- Zain Kurnia <programmer-fe3@qwertysystem.net>
+- Rhapsodya Piedro Asmorobangun ([@piedorr](http://github.com/piedorr))
+
+## v1.5.170
+
+[compare changes](https://github.com/fewangsit/wangsvue/compare/v1.5.169...v1.5.170)
+
+### 🩹 Fixes
+
+- **Se67NdHZ:** Find PBI according to looped array ([0266b3c](https://github.com/fewangsit/wangsvue/commit/0266b3c))
+
+### 💅 Refactors
+
+- **DialogDetailPbi:** Add optional chaining for createdBy ([056b9c5](https://github.com/fewangsit/wangsvue/commit/056b9c5))
+
+### ❤️ Contributors
+
+- Rhapsodya Piedro Asmorobangun ([@piedorr](http://github.com/piedorr))
+
 ## v1.5.169
 
 [compare changes](https://github.com/fewangsit/wangsvue/compare/v1.5.168...v1.5.169)

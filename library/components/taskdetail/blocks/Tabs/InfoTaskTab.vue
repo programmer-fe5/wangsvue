@@ -68,7 +68,7 @@ const continousDurationLabel = computed(() => {
       const minuteDiff = timeDiff / 60000;
       const durationInMinutes =
         minuteDiff + taskDetail.value?.timerStartedValue;
-      return getDuration(durationInMinutes);
+      return getDuration(durationInMinutes, 24);
     }
     return 'Durasi';
   }
@@ -204,9 +204,17 @@ const updateStartDate = async (): Promise<void> => {
   }
 };
 
-const getDuration = (duration: number): string => {
-  const totalMinutesInDay = 9 * 60; // 9 hours in a day
-  const days = Math.floor(duration / totalMinutesInDay); // Full 9-hour days
+/**
+ * Calculates the duration in days, hours, and minutes based on the given duration in minutes.
+ *
+ * @param {number} duration - The total duration in minutes.
+ * @param {number} [hourPerDay=9] - Optional. The number of working hours per day. Defaults to 9 hours if not provided.
+ * @returns {string} - The formatted duration string in the format "{days}h {hours}j {remainingMinutes}m".
+ */
+const getDuration = (duration: number, hourPerDay?: number): string => {
+  const hourPerDayValue = hourPerDay || 9; // Default 9 hours in a day
+  const totalMinutesInDay = hourPerDayValue * 60;
+  const days = Math.floor(duration / totalMinutesInDay); // Full {hourPerDayValue}-hour days
   const hours = Math.floor((duration % totalMinutesInDay) / 60); // Remaining hours
   const remainingMinutes = Math.floor(duration % 60); // Remaining minutes
 
