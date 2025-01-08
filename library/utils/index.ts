@@ -15,6 +15,7 @@ import getUserType from './getUserType.util';
 import getProjectPermission from './getProjectPermission.util';
 import isIntersect from './isIntersect';
 import convertJsonImage from './convertJsonImage.util';
+import useI18n from './translation.util';
 
 const getNestedProperyValue = (
   object: object,
@@ -53,4 +54,5 @@ export {
   formatISODate,
   formatDateReadable,
   queryParamsStringfy,
+  useI18n,
 };

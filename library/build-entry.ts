@@ -66,6 +66,7 @@ import {
   formatISODate,
   formatDateReadable,
   queryParamsStringfy,
+  useI18n,
 } from 'lib/utils';
 
 import { formatCurrency } from './components/inputcurrency/helpers/currency.helper';
@@ -176,6 +177,7 @@ export {
   formatDateReadable,
   formatCurrency,
   queryParamsStringfy,
+  useI18n,
 
   // Components
   Badge,
