@@ -206,6 +206,7 @@ export interface TaskTableItem {
   taskType?: TaskType;
   isProjectManager?: boolean;
   isTeamLeader?: boolean;
+  duration?: number;
 }
 
 export interface TaskTableItemDependency {

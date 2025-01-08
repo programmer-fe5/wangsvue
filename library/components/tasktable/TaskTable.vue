@@ -215,6 +215,22 @@ const tableColumns = computed<TableColumn[]>(() => {
       visible: true,
     },
     {
+      field: 'duration',
+      header: 'Durasi',
+      sortable: true,
+      bodyTemplate: (data: TaskTableItem): string => {
+        const isContinousDuration = [
+          'Pengonsepan',
+          'Diagram',
+          'Wireframe',
+          'API Spec',
+        ].includes(data?.process?.name);
+        const hourPerDay = isContinousDuration ? 24 : 9;
+        return getDuration(data.duration / 60000, hourPerDay);
+      },
+      visible: true,
+    },
+    {
       field: 'childTask',
       header: 'Child Task',
       sortable: true,
@@ -667,6 +683,23 @@ const onClickCreateTask = (): void => {
   } else {
     dialogNewTask.value = true;
   }
+};
+
+/**
+ * Calculates the duration in days, hours, and minutes based on the given duration in minutes.
+ *
+ * @param {number} duration - The total duration in minutes.
+ * @param {number} [hourPerDay=9] - Optional. The number of working hours per day. Defaults to 9 hours if not provided.
+ * @returns {string} - The formatted duration string in the format "{days}h {hours}j {remainingMinutes}m".
+ */
+const getDuration = (duration: number, hourPerDay?: number): string => {
+  const hourPerDayValue = hourPerDay || 9; // Default 9 hours in a day
+  const totalMinutesInDay = hourPerDayValue * 60;
+  const days = Math.floor(duration / totalMinutesInDay); // Full {hourPerDayValue}-hour days
+  const hours = Math.floor((duration % totalMinutesInDay) / 60); // Remaining hours
+  const remainingMinutes = Math.floor(duration % 60); // Remaining minutes
+
+  return `${days}h ${hours}j ${remainingMinutes}m`;
 };
 
 const getTasks = async (

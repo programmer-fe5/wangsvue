@@ -204,6 +204,13 @@ const updateStartDate = async (): Promise<void> => {
   }
 };
 
+/**
+ * Calculates the duration in days, hours, and minutes based on the given duration in minutes.
+ *
+ * @param {number} duration - The total duration in minutes.
+ * @param {number} [hourPerDay=9] - Optional. The number of working hours per day. Defaults to 9 hours if not provided.
+ * @returns {string} - The formatted duration string in the format "{days}h {hours}j {remainingMinutes}m".
+ */
 const getDuration = (duration: number, hourPerDay?: number): string => {
   const hourPerDayValue = hourPerDay || 9; // Default 9 hours in a day
   const totalMinutesInDay = hourPerDayValue * 60;
